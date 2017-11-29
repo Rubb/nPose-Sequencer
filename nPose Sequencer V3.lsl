@@ -23,7 +23,6 @@ default{
             loopTo = 0;
             loadedCard = str;
             state isRunning;
-            kQuery = llGetNotecardLine(loadedCard, iLine);
         }else if (num == 34334){
             //just a memory check initiated by nPose notecard.  typically used for initial setup
             llSay(0,"Memory Used by " + llGetScriptName() + ": " + (string)llGetUsedMemory() + " of " + (string)llGetMemoryLimit()
@@ -76,9 +75,9 @@ state isRunning{
                 }
                 kQuery = llGetNotecardLine(loadedCard, iLine);
             }
-        }else if (num == 200){
+        }else if (num == 35353){
             //here is the check to see if nPose wants to move to a normal non-sequenced pose set
-            if (cardToRun != str){
+            if (cardToRun != (string)id){
                 //if the pose set does not match the one the sequencer is running, stop the timer
                 llSetTimerEvent(0.0);
                 state default;
@@ -179,9 +178,9 @@ state isPaused{
                 //resume is the anti-pause and will start the paused timer at the current pose
                 state isRunning;
             }
-        }else if (num == 200){
+        }else if (num == 35353){
             //here is the check to see if nPose wants to move to a normal non-sequenced pose set
-            if (cardToRun != str){
+            if (cardToRun != (string)id){
                 //if the pose set does not match the one the sequencer is running, stop the timer
                 llSetTimerEvent(0.0);
                 state default;
